@@ -4,7 +4,6 @@ load('api_blynk.js');
 
 let control_switch = function(device, state) {
   let group = ffi('char* cfg_get_group(void)')();
-  print("GROUP", group);
   if (state === 1) {
     RCSwitch.switchOn(group, device);
   } else {
