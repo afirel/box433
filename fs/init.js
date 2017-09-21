@@ -28,8 +28,8 @@ let control_switch = function(device, state) {
   }
 };
 
-Blynk.setHandler(function(conn, cmd, pin, val) {
-  print(cmd, pin, val);
+Blynk.setHandler(function(conn, cmd, pin, val, id) {
+  print(cmd, pin, val, id);
   if (cmd === 'vw') {
     if (pin === 1) {
       control_switch("10000", val);
@@ -42,5 +42,9 @@ Blynk.setHandler(function(conn, cmd, pin, val) {
     } else if (pin === 5) {
       control_switch("00001", val);
     }
+  } else if (cmd === 'vr') {
+    let sensor = pin - 10;
+    print("Send temp sensor ", sensor, " reading: ", temp_readings[sensor]);
+    Blynk.virtualWrite(conn, pin, temp_readings[sensor], id);
   }
 }, null);

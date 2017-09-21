@@ -22,11 +22,11 @@ libs:
   - origin: https://github.com/mongoose-os-libs/wifi
   - origin: https://github.com/mongoose-os-libs/arduino-compat
   - origin: https://github.com/mongoose-os-libs/mjs
+  - origin: https://github.com/mongoose-os-libs/blynk
+  - origin: https://github.com/mongoose-os-libs/spi
+  - origin: https://github.com/mongoose-os-libs/i2c
+  - origin: https://github.com/mongoose-os-libs/arduino-dallas-temperature
 config_schema:
-  - ["blynk", "o", {"title": "Blynk settings"}]
-  - ["blynk.enable", "b", true, {"title": "Enable Blynk"}]
-  - ["blynk.server", "s", "blynk-cloud.com:8442", {"title": "Server address"}]
-  - ["blynk.auth", "s", "", {"title": "Auth token"}]
   - ["box433", "o", {"title": "box433 main settings"}]
   - ["box433.group", "s", "11111", {"title": "Group code for wireless power sockets"}]
 build_vars:
