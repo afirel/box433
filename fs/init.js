@@ -1,6 +1,23 @@
 load('api_timer.js');
-load('api_rcswitch.js');
 load('api_blynk.js');
+
+let RCSwitch = {
+  configure: ffi('void rcswitch_configure(int, int, int, int)'),
+  switchOn: ffi('void rcswitch_switch_on(char*, char*)'),
+  switchOff: ffi('void rcswitch_switch_off(char*, char*)'),
+
+  PIN: 13,
+  PROTOCOL: 1,
+  PULSE_LENGTH: 300,
+  REPEAT_TRANSMIT: 15,
+};
+
+RCSwitch.configure(
+  RCSwitch.PIN,
+  RCSwitch.PROTOCOL,
+  RCSwitch.PULSE_LENGTH,
+  RCSwitch.REPEAT_TRANSMIT
+);
 
 let control_switch = function(device, state) {
   let group = ffi('char* cfg_get_group(void)')();

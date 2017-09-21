@@ -12,7 +12,6 @@ sources:
   - ${mgos_rcswitch_path}/src
 filesystem:
   - fs
-  - ${mgos_rcswitch_path}/fs/api_rcswitch.js
 modules:
   - origin: https://github.com/afirel/mgos_rcswitch
 libs:
