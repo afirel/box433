@@ -1,5 +1,6 @@
 load('api_timer.js');
 load('api_blynk.js');
+load('tempsensor.js');
 
 let RCSwitch = {
   configure: ffi('void rcswitch_configure(int, int, int, int)'),
